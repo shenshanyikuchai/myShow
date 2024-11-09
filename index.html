@@ -1,9 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
+
 <head>
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 浏览器标签上显示的网站标题 -->
+    <title>决不放弃，这是我的忍道！</title>
+    <!-- 网站介绍 -->
+    <meta name="description" content="个人网站主页">
+    <!-- 网站关键字 -->
+    <meta name="keywords" content="个人主页,程序员">
+    <!-- 浏览器标签上显示的图标 -->
+    <link rel="icon" type="image/ico" href="//sdn.geekzu.org/avatar/4cc893d113dd74ceca73f9863f2c5446/">
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="./static/style.css?v=1.2.0">
+    <link rel="stylesheet" href="./static/APlayer-1.10.1/dist/APlayer.min.css">
+
+    <!-- 自定义设置 -->
+    <style>
+        body {
+            /*背景图片URL 可使用随机图片API */
+            background-image: url("./static/images/bg.jpg");
+        }
+
+        .photo-bg {
+            /* 卡片左侧图片 */
+            background-image: url("./static/images/fbg.png");
+        }
+
+        .kz-video {
+            /* 背景视频，none: 不显示 unset 显示 */
+            display: none; 
+        }
+    </style>
+    <script>
+        // 音乐设置
+        let meting_music_api = "https://www.kezez.com/api/meting-api/";// meting api
+        let music_server = "netease"; // 音乐服务：网易云 netease 参见 meting api支持的服务
+        let music_type = "playlist"; // 歌曲类型：歌单playlist 单首歌曲 song  专辑 album
+        let music_id = "8362718673"; // 歌单ID或歌曲ID或者专辑ID 20173709 29732992
+        let music_order = "random"; // 音频循环顺序, 顺序播放： 'list', 随机播放：'random'
+        let music_mini = false; // mini模式 吸底模式开启后此选项实效 true / false
+        let music_fixed = false; // 吸底模式
+        let music_volume = 0.7; // 默认音量
+        let music_autoplay = false; // 自动播放
+        let music_loop = "all"; // 音频循环播放, 可选值: 'all', 'one', 'none' ，分别为全部循环，单曲循环，不循环
+
+        // 一言设置
+        let hitokoto_api = "https://v1.hitokoto.cn"; // 一言API
+    </script>
+    <!-- end 自定义设置 -->
 </head>
+
 <body>
-  <h1>个人网站</h1>
-</body>
+    <div class="kz-video">
+        <video src="./static/video/lty.mp4" autoplay="autoplay" loop muted playsinline="" webkit-playsinline=""></video>
+    </div>
+    <div id="main" class="container">
+        <div class="row my-card justify-content-center">
+            <div class="col-lg-4 photo-bg"></div>
+            <div class="col-lg-8 card">
+                <!-- 大标题 -->
+                <h1>我的个人网站</h1>
+                <!-- 标题下的一段话 -->
+                <p>
+                    很荣幸您能访问我的网站！ 目前我仍在学习中，每天抽出时间来看书学习，励志成为一个技术很牛的程序员。
+                </p>
+                <p id="hitokoto_text">:D 一言获取中...</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- 导航按钮组 -->
+                        <button data-href="https://www.baidu.com" data-title="Blog" data-window="pop" data-anim="4"
+                            data-area-w="80%" data-area-h="90%" data-shade="false"
+                            class="kz-nav-btn btn btn-primary col-lg-4">百度一下😄</button>
+
+                        <button data-href="https://github.com/shenshanyikuchai" data-title="GitHub" data-window="newtab"
+                            data-anim="4" data-area-w="80%" data-area-h="90%" data-shade="false"
+                            class="kz-nav-btn btn btn-secondary col-lg-4">GitHub</button>
+
+                        <button data-href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1073122378@qq.com"
+                            data-title="Blog" data-window="pop" data-anim="4" data-area-w="80%" data-area-h="90%"
+                            data-shade="false" class="kz-nav-btn btn btn-success col-lg-4">Send a Mail</button>
+
+                        <!-- end 导航按钮组 -->
+                    </div>
+                </div>
+                <!-- aplayer inner -->
+                <div id="aplayer-inner" class="aplayer"></div>
+                <!-- end aplayer inner -->
+                <ul class="social mt-1">
+                    <li><a href="https://weibo.com/u/3799507087"><i class="fab fa-weibo " aria-hidden="true"></i></a>
+                    </li>
+                    <li><a href="https://github.com/shenshanyikuchai"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-telegram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.zhihu.com/people/tu-ran-cao-11-64"><i class="fab fa-zhihu"
+                                aria-hidden="true"></i></a></li>
+                </ul>
+
+                <footer>
+                    <p>Copyright 2024 - Now <a href="https://www.baidu.com" target="_blank">百度</a>
+                        <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备00000000号-1</a>
+                        <br>
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- aplayer -->
+    <div id="aplayer-fixed" class="aplayer"></div>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./static/APlayer-1.10.1/dist/APlayer.min.js"></script>
+    <script src="./static/Meting.min.js"></script>
+    <!-- end_aplayer -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script defer src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./static/layer-v3.5.1/layer/layer.js"></script>
+
+    <script src="./static/main.js"></script>
+
 </html>
