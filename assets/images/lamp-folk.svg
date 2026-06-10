@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" fill="none">
+  <rect width="600" height="375" fill="#150818"/>
+  <ellipse cx="300" cy="200" rx="55" ry="65" fill="#ff6b9d"/>
+  <ellipse cx="300" cy="195" rx="40" ry="50" fill="#ffd54f" opacity="0.3"/>
+  <circle cx="285" cy="185" r="5" fill="#fff"/><circle cx="315" cy="185" r="5" fill="#fff"/>
+  <path d="M285 210 Q300 225 315 210" stroke="#fff" stroke-width="3" fill="none"/>
+  <ellipse cx="300" cy="120" rx="25" ry="15" fill="#ff6b9d"/>
+  <line x1="300" y1="105" x2="300" y2="70" stroke="#ffd54f" stroke-width="2"/>
+  <text x="300" y="340" text-anchor="middle" fill="#ffd54f" font-size="16" font-family="system-ui">×±o · TPio</text>
+</svg>

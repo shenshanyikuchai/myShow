@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" fill="none">
+  <rect width="600" height="375" fill="#120614"/>
+  <path d="M120 220 Q200 80 300 120 Q400 160 480 100 Q520 80 500 140 Q480 200 380 220 Q280 240 200 200 Q140 180 120 220 Z" fill="#ff3d5a" opacity="0.9"/>
+  <path d="M480 100 Q520 90 540 120" stroke="#ffd54f" stroke-width="5" fill="none"/>
+  <circle cx="200" cy="160" r="8" fill="#00e8ff"/>
+  <text x="300" y="340" text-anchor="middle" fill="#ffd54f" font-size="16" font-family="system-ui">'‹™b±ooÄ</text>
+</svg>

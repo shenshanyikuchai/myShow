@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" fill="none">
+  <rect width="600" height="375" fill="#1a0810"/>
+  <rect x="250" y="100" width="100" height="140" fill="#e63946"/>
+  <g fill="#ffd54f">
+    <circle cx="300" cy="130" r="8"/><circle cx="300" cy="160" r="8"/><circle cx="300" cy="190" r="8"/><circle cx="300" cy="220" r="8"/>
+    <circle cx="275" cy="145" r="6"/><circle cx="325" cy="145" r="6"/><circle cx="275" cy="175" r="6"/><circle cx="325" cy="175" r="6"/>
+  </g>
+  <ellipse cx="300" cy="260" rx="80" ry="20" fill="#ff6b35" opacity="0.5"/>
+  <text x="300" y="340" text-anchor="middle" fill="#ffd54f" font-size="16" font-family="system-ui">ý†‚;˜io</text>
+</svg>

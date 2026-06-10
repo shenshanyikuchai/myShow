@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" fill="none">
+  <rect width="600" height="375" fill="#0a1628"/>
+  <path d="M60 240 L540 240 L520 200 L80 200 Z" fill="#4a5568"/>
+  <path d="M100 200 L120 160 L480 160 L500 200" fill="#5a6578"/>
+  <line x1="150" y1="200" x2="150" y2="240" stroke="#00e8ff" stroke-width="2"/><line x1="300" y1="200" x2="300" y2="240" stroke="#00e8ff" stroke-width="2"/><line x1="450" y1="200" x2="450" y2="240" stroke="#00e8ff" stroke-width="2"/>
+  <path d="M200 160 L220 120 L280 120 L300 160" fill="#718096"/>
+  <text x="300" y="340" text-anchor="middle" fill="#00e8ff" font-size="16" font-family="system-ui">*Í›0!‹</text>
+</svg>

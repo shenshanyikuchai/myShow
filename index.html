@@ -1,126 +1,336 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- 浏览器标签上显示的网站标题 -->
-    <title>决不放弃，这是我的忍道！</title>
-    <!-- 网站介绍 -->
-    <meta name="description" content="个人网站主页">
-    <!-- 网站关键字 -->
-    <meta name="keywords" content="个人主页,程序员">
-    <!-- 浏览器标签上显示的图标 -->
-    <link rel="icon" type="image/ico" href="//sdn.geekzu.org/avatar/4cc893d113dd74ceca73f9863f2c5446/">
-    <!-- 样式文件 -->
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-    <link rel="stylesheet" href="./static/style.css?v=1.2.0">
-    <link rel="stylesheet" href="./static/APlayer-1.10.1/dist/APlayer.min.css">
-
-    <!-- 自定义设置 -->
-    <style>
-        body {
-            /*背景图片URL 可使用随机图片API */
-            background-image: url("./static/images/bg.jpg");
-        }
-
-        .photo-bg {
-            /* 卡片左侧图片 */
-            background-image: url("./static/images/fbg.png");
-        }
-
-        .kz-video {
-            /* 背景视频，none: 不显示 unset 显示 */
-            display: none; 
-        }
-    </style>
-    <script>
-        // 音乐设置
-        let meting_music_api = "https://www.kezez.com/api/meting-api/";// meting api
-        let music_server = "netease"; // 音乐服务：网易云 netease 参见 meting api支持的服务
-        let music_type = "playlist"; // 歌曲类型：歌单playlist 单首歌曲 song  专辑 album
-        let music_id = "8362718673"; // 歌单ID或歌曲ID或者专辑ID 20173709 29732992
-        let music_order = "random"; // 音频循环顺序, 顺序播放： 'list', 随机播放：'random'
-        let music_mini = false; // mini模式 吸底模式开启后此选项实效 true / false
-        let music_fixed = false; // 吸底模式
-        let music_volume = 0.7; // 默认音量
-        let music_autoplay = false; // 自动播放
-        let music_loop = "all"; // 音频循环播放, 可选值: 'all', 'one', 'none' ，分别为全部循环，单曲循环，不循环
-
-        // 一言设置
-        let hitokoto_api = "https://v1.hitokoto.cn"; // 一言API
-    </script>
-    <!-- end 自定义设置 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="河南创亿彩灯艺术有限公司 — 彩灯花灯定制、景观亮化、军事模型与影视道具一站式解决方案">
+  <title>河南创亿彩灯艺术有限公司 | 彩灯艺术 · 军事模型</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-    <div class="kz-video">
-        <video src="./static/video/lty.mp4" autoplay="autoplay" loop muted playsinline="" webkit-playsinline=""></video>
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+  </div>
+  <div id="lantern-float" class="lantern-float" aria-hidden="true"></div>
+  <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 4L24 16H36L26 24L30 36L20 28L10 36L14 24L4 16H16L20 4Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <strong>创亿彩灯</strong>
+          <small>CHUANGYI LAMP ART</small>
+        </span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <a href="#home">首页</a>
+        <a href="#about">企业简介</a>
+        <a href="#lamp-products">彩灯产品</a>
+        <a href="#military-products">军事模型</a>
+        <a href="#services">服务能力</a>
+        <a href="#contact" class="nav-cta">联系我们</a>
+      </nav>
     </div>
-    <div id="main" class="container">
-        <div class="row my-card justify-content-center">
-            <div class="col-lg-4 photo-bg"></div>
-            <div class="col-lg-8 card">
-                <!-- 大标题 -->
-                <h1>我的个人网站</h1>
-                <!-- 标题下的一段话 -->
-                <p>
-                    很荣幸您能访问我的网站！ 目前我仍在学习中，每天抽出时间来看书学习，励志成为一个技术很牛的程序员。
-                </p>
-                <p id="hitokoto_text">:D 一言获取中...</p>
-                <div class="container-fluid">
-                    <div class="row">
-                        <!-- 导航按钮组 -->
-                        <button data-href="https://www.baidu.com" data-title="Blog" data-window="pop" data-anim="4"
-                            data-area-w="80%" data-area-h="90%" data-shade="false"
-                            class="kz-nav-btn btn btn-primary col-lg-4">百度一下😄</button>
+  </header>
 
-                        <button data-href="https://github.com/shenshanyikuchai" data-title="GitHub" data-window="newtab"
-                            data-anim="4" data-area-w="80%" data-area-h="90%" data-shade="false"
-                            class="kz-nav-btn btn btn-secondary col-lg-4">GitHub</button>
-
-                        <button data-href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1073122378@qq.com"
-                            data-title="Blog" data-window="pop" data-anim="4" data-area-w="80%" data-area-h="90%"
-                            data-shade="false" class="kz-nav-btn btn btn-success col-lg-4">Send a Mail</button>
-
-                        <!-- end 导航按钮组 -->
-                    </div>
-                </div>
-                <!-- aplayer inner -->
-                <div id="aplayer-inner" class="aplayer"></div>
-                <!-- end aplayer inner -->
-                <ul class="social mt-1">
-                    <li><a href="https://weibo.com/u/3799507087"><i class="fab fa-weibo " aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="https://github.com/shenshanyikuchai"><i class="fab fa-github" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fab fa-telegram" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="https://www.zhihu.com/people/tu-ran-cao-11-64"><i class="fab fa-zhihu"
-                                aria-hidden="true"></i></a></li>
-                </ul>
-
-                <footer>
-                    <p>Copyright 2024 - Now <a href="https://www.baidu.com" target="_blank">百度</a>
-                        <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备00000000号-1</a>
-                        <br>
-                    </p>
-                </footer>
-            </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <img id="hero-img" src="assets/images/hero-dragon.jpg" alt="龙形彩灯花灯灯展" loading="eager">
+        <div class="hero-overlay"></div>
+        <div class="hero-light-rays" aria-hidden="true"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          河南 · 周口 · 彩灯艺术智造 · 喜庆灯展
         </div>
+        <h1>
+          <span class="hero-line glitch" data-text="光影艺术">光影艺术</span>
+          <span class="hero-line gradient-text">科技喜庆 · 光耀中原</span>
+        </h1>
+        <p class="hero-desc">
+          河南创亿彩灯艺术有限公司专注于工艺美术彩灯制造、景观花灯定制、影视美术道具置景及军事模型展示解决方案，为灯展节庆、文旅景区、国防教育与影视拍摄提供从设计到落地的一站式服务。
+        </p>
+        <div class="hero-actions">
+          <a href="#lamp-products" class="btn btn-primary btn-magnetic">探索彩灯产品</a>
+          <a href="#military-products" class="btn btn-outline btn-magnetic">军事模型系列</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-num" data-count="110">0</span>
+            <span class="stat-unit">万元</span>
+            <span class="stat-label">注册资本</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-num" data-count="24">0</span>
+            <span class="stat-unit">+</span>
+            <span class="stat-label">彩灯品类</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-unit">大板块</span>
+            <span class="stat-label">彩灯 · 模型</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
 
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ABOUT US</span>
+          <h2>企业简介</h2>
+          <p>传承非遗彩灯工艺，融合现代光影科技与精密模型制造</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-visual">
+            <div class="about-img-wrap">
+              <img id="about-img" src="assets/images/about-festival.jpg" alt="节日彩灯花灯展示" loading="lazy">
+              <div class="about-img-frame"></div>
+            </div>
+            <div class="about-float-card">
+              <span class="float-label">成立时间</span>
+              <strong>2024-05-09</strong>
+            </div>
+          </div>
+          <div class="about-content">
+            <h3>河南创亿彩灯艺术有限公司</h3>
+            <p>公司注册于河南省周口市郸城县，是一家集专业设计服务、工艺美术彩灯制造、灯具销售、文艺创作、非物质文化遗产保护、园林绿化工程施工、影视美术道具置景、会议展览服务于一体的综合性文创制造企业。</p>
+            <p>主营节日灯、公园灯、民俗灯、装饰花灯、龙年彩灯、大型花灯、景观灯饰、彩灯定制等全品类产品，同时依托影视道具与置景服务能力，延伸军事模型、国防教育展示装备等定制业务，服务灯展节庆、文旅夜游、研学基地与影视剧组等多场景需求。</p>
+            <ul class="about-info">
+              <li>
+                <span>法定代表人</span>
+                <strong>夏东磊</strong>
+              </li>
+              <li>
+                <span>注册资本</span>
+                <strong>110 万元人民币</strong>
+              </li>
+              <li>
+                <span>统一社会信用代码</span>
+                <strong>91411625MADJQQPL1Q</strong>
+              </li>
+              <li>
+                <span>注册地址</span>
+                <strong>河南省周口市郸城县汲冢镇鲁庄村西1000米001号</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products lamp-products" id="lamp-products">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">COLOR LAMP</span>
+          <h2>彩灯产品中心</h2>
+          <p>节日庆典 · 景观亮化 · 民俗花灯 · 定制设计</p>
+        </div>
+        <div class="product-grid" id="lamp-grid"></div>
+      </div>
+    </section>
+
+    <section class="section products military-products" id="military-products">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">MILITARY MODEL</span>
+          <h2>军事模型产品</h2>
+          <p>仿真装备 · 国防教育 · 影视道具 · 一比一定制</p>
+        </div>
+        <div class="military-intro glass-card">
+          <p>依托<strong>影视美术道具置景服务</strong>与河南地区成熟的模型制造产业链，创亿彩灯可承接战斗机、坦克装甲、航母军舰、导弹发射车等全品类军事模型的设计、制作、租赁与展出，广泛应用于国防教育基地、军事主题公园、红色研学与影视拍摄场景。</p>
+        </div>
+        <div class="product-grid" id="military-grid"></div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">SERVICES</span>
+          <h2>一站式服务能力</h2>
+          <p>从创意策划到现场施工，全链路品质交付</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M8 38V14l16-8 16 8v24l-16 8-16-8z" stroke="currentColor" stroke-width="2"/><path d="M24 6v32M8 14l16 8 16-8" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>创意策划设计</h3>
+            <p>专业设计服务、平面设计、彩灯艺术设计，结合节庆主题与景区定位输出创意方案。</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 18h36M14 26h8M14 32h12" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>工艺彩灯制造</h3>
+            <p>工艺美术彩灯制造，涵盖花灯、节日灯、景观灯饰，支持大型灯组与动态机械结构。</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/><path d="M24 14v10l7 7" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>展览活动服务</h3>
+            <p>会议及展览服务、旅游开发项目策划咨询、公园景区小型设施娱乐活动承办。</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M10 38l8-20h12l8 20" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="12" r="6" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>影视道具置景</h3>
+            <p>影视美术道具置景服务，军事模型、仿真装备定制，满足剧组与研学基地高标准需求。</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M6 38h36M12 38V22l12-8 12 8v16" stroke="currentColor" stroke-width="2"/><path d="M20 38v-8h8v8" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>景观亮化工程</h3>
+            <p>园林绿化工程施工、灯具销售与灯光定制，打造城市夜游与商业氛围亮化。</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 6c-6 8-10 14-10 20a10 10 0 1020 0c0-6-4-12-10-20z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>非遗文化传承</h3>
+            <p>非物质文化遗产保护，传承中原彩灯技艺，融合 LED 智能控光与现代材料工艺。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">WORKFLOW</span>
+          <h2>项目交付流程</h2>
+        </div>
+        <div class="process-track">
+          <div class="process-step">
+            <span class="step-num">01</span>
+            <h4>需求沟通</h4>
+            <p>场景调研与预算评估</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">02</span>
+            <h4>方案设计</h4>
+            <p>效果图与结构方案</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">03</span>
+            <h4>精工制作</h4>
+            <p>彩灯工艺与模型制造</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">04</span>
+            <h4>运输安装</h4>
+            <p>现场施工与调试</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">05</span>
+            <h4>运营维护</h4>
+            <p>展期保障与售后服务</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <span class="section-tag">CONTACT</span>
+            <h2>联系我们</h2>
+            <p>欢迎灯展策划方、文旅景区、研学基地与影视剧组洽谈合作，获取定制方案与报价。</p>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">企业名称</span>
+                <span>河南创亿彩灯艺术有限公司</span>
+              </li>
+              <li>
+                <span class="contact-label">注册地址</span>
+                <span>河南省周口市郸城县汲冢镇鲁庄村西1000米001号</span>
+              </li>
+              <li>
+                <span class="contact-label">经营范围</span>
+                <span>彩灯制造 · 花灯定制 · 景观亮化 · 影视道具 · 军事模型</span>
+              </li>
+              <li>
+                <span class="contact-label">业务咨询</span>
+                <span>百度爱采购企业店铺 / 在线询价</span>
+              </li>
+            </ul>
+            <a href="https://b2b.baidu.com/shop?name=%E6%B2%B3%E5%8D%97%E5%88%9B%E4%BA%BF%E5%BD%A9%E7%81%AF%E8%89%BA%E6%9C%AF%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&xzhid=58102899" class="btn btn-primary" target="_blank" rel="noopener noreferrer">访问爱采购店铺</a>
+          </div>
+          <form class="contact-form glass-card" id="contact-form">
+            <h3>在线咨询</h3>
+            <div class="form-group">
+              <label for="name">姓名 / 单位</label>
+              <input type="text" id="name" name="name" placeholder="请输入您的姓名或单位名称" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">联系电话</label>
+              <input type="tel" id="phone" name="phone" placeholder="请输入手机号码" required>
+            </div>
+            <div class="form-group">
+              <label for="type">咨询类型</label>
+              <select id="type" name="type">
+                <option value="lamp">彩灯花灯定制</option>
+                <option value="military">军事模型定制</option>
+                <option value="film">影视道具置景</option>
+                <option value="lighting">景观亮化工程</option>
+                <option value="other">其他合作</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">项目需求</label>
+              <textarea id="message" name="message" rows="4" placeholder="请描述项目规模、应用场景与定制需求"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">提交咨询</button>
+            <p class="form-note">提交后将通过爱采购平台为您对接专人服务</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>河南创亿彩灯艺术有限公司</strong>
+        <p>彩灯艺术 · 军事模型 · 光影科技</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">企业简介</a>
+        <a href="#lamp-products">彩灯产品</a>
+        <a href="#military-products">军事模型</a>
+        <a href="#contact">联系我们</a>
+      </div>
+      <p class="footer-copy">© 2024-2026 河南创亿彩灯艺术有限公司 · 91411625MADJQQPL1Q </p>
     </div>
+  </footer>
 
-    <!-- aplayer -->
-    <div id="aplayer-fixed" class="aplayer"></div>
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./static/APlayer-1.10.1/dist/APlayer.min.js"></script>
-    <script src="./static/Meting.min.js"></script>
-    <!-- end_aplayer -->
-    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-    <script defer src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="./static/layer-v3.5.1/layer/layer.js"></script>
-
-    <script src="./static/main.js"></script>
-
+  <script src="js/main.js"></script>
+</body>
 </html>

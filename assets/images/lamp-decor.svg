@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" fill="none">
+  <rect width="600" height="375" fill="#0f1020"/>
+  <g fill="#e63946">
+    <ellipse cx="150" cy="180" rx="35" ry="42"/><ellipse cx="250" cy="160" rx="40" ry="48"/><ellipse cx="350" cy="175" rx="38" ry="45"/><ellipse cx="450" cy="165" rx="35" ry="42"/>
+  </g>
+  <g stroke="#ffd54f" stroke-width="2" opacity="0.7">
+    <path d="M100 120 L500 120"/><path d="M120 100 L480 100"/>
+  </g>
+  <text x="300" y="340" text-anchor="middle" fill="#ffd54f" font-size="16" font-family="system-ui">Åp±o</text>
+</svg>

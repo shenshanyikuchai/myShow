@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" fill="none">
+  <rect width="600" height="375" fill="#0a1220"/>
+  <path d="M300 80 L340 200 L300 280 L260 200 Z" fill="#00e8ff" opacity="0.2"/>
+  <ellipse cx="300" cy="190" rx="90" ry="70" fill="none" stroke="#ffd54f" stroke-width="3" stroke-dasharray="8 6"/>
+  <path d="M200 250 Q300 120 400 250" stroke="#ff6b35" stroke-width="4" fill="none"/>
+  <text x="300" y="340" text-anchor="middle" fill="#00e8ff" font-size="16" font-family="system-ui">ioš6¾¡</text>
+</svg>
