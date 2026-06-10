@@ -240,13 +240,40 @@
       navToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    nav.querySelectorAll('a').forEach((link) => {
+    const links = Array.from(nav.querySelectorAll('a'));
+
+    links.forEach((link) => {
       link.addEventListener('click', () => {
         nav.classList.remove('open');
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    /** 滚动联动：根据当前所在区块高亮对应导航项 */
+    const sections = links
+      .map((link) => {
+        const id = link.getAttribute('href');
+        if (!id || !id.startsWith('#')) return null;
+        const section = document.querySelector(id);
+        return section ? { link, section } : null;
+      })
+      .filter(Boolean);
+
+    const setActive = (activeLink) => {
+      links.forEach((link) => link.classList.toggle('active', link === activeLink));
+    };
+
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const match = sections.find((s) => s.section === entry.target);
+          if (match) setActive(match.link);
+        }
+      });
+    }, { rootMargin: '-45% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(({ section }) => spyObserver.observe(section));
   }
 
   function initCounters() {
