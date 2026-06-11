@@ -1,0 +1,14 @@
+index.html
+  h_f090987958fc4c 147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "65ddaed2c659310ce50edaeee8e235fecc1af1eb",
+  "prompts": {},
+  "humans": {
+    "h_f090987958fc4c": {
+      "author": "lihui36 <lihui36@zuoyebang.com>"
+    }
+  }
+}
